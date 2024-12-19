@@ -1,0 +1,4 @@
+-- IS NULL ili IS NOT NULL
+SELECT *
+FROM customers
+WHERE phone IS NULL;
