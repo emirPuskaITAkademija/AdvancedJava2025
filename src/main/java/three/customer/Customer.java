@@ -122,8 +122,9 @@ public class Customer {
         return points;
     }
 
-    public void setPoints(int points) {
+    public Customer setPoints(int points) {
         this.points = points;
+        return this;
     }
 
     @Override
