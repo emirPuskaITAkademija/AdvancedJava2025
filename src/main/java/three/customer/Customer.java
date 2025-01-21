@@ -1,5 +1,6 @@
 package three.customer;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Objects;
@@ -62,8 +63,17 @@ public class Customer {
         this.lastName = lastName;
     }
 
+    //java.time.LocalDate
+    //java.sql.Date
     public LocalDate getBirthDate() {
         return birthDate;
+    }
+
+    public Date getBirthDateAsSqlDate() {
+        if(birthDate == null){
+            return null;
+        }
+        return Date.valueOf(birthDate);
     }
 
     public void setBirthDate(LocalDate birthDate) {
