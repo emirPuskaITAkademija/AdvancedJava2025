@@ -34,7 +34,7 @@ public class Sample2 {
         long start = System.currentTimeMillis();
         double result =
                 IntStream.range(0, ITERATIONS)// 0, 1, 2, ....1500
-                        .sequential()
+                        .parallel()
                         .mapToDouble(Sample2::compute)
                         .sum();
         long end = System.currentTimeMillis();
