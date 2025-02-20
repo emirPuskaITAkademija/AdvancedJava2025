@@ -3,8 +3,6 @@ package six.i18n;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -76,6 +74,7 @@ public class Prozor {
 
     private static ResourceBundle getResource(String language, String country) {
         Locale currentLocale = new Locale(language, country);
+        //messages_fr_FR
         return ResourceBundle.getBundle("messages", currentLocale);
     }
 }
