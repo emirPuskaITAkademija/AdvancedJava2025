@@ -9,6 +9,20 @@ public class DynamicArray<E> implements Iterable<E> {
     private int capacity = 0;
     private E[] elements = (E[]) new Object[capacity];
 
+
+    /**
+     * Kako je moguće da ova metoda traži od mene da vratim rezultat ili varijablu tipa Iterator<E>,
+     * a ja vraćam DynamicArrayIterator ?
+     *
+     * Zašto compiler ne pravi prigovor ?
+     *
+     * Odgovor:
+     * DynamicArrayIterator extends Iterator<E>
+     *
+     *     Vratio sam polimorfističnu varijablu.
+     *     tipa: Iterator<E>, DynamicArrayIterator
+     * @return dynamicArrayIterator
+     */
     @Override
     public Iterator<E> iterator() {
         return new DynamicArrayIterator();
@@ -41,17 +55,21 @@ public class DynamicArray<E> implements Iterable<E> {
         remove(elementIndex);
     }
 
+    //Klasa = TIP podatka i u ovom slučaju je još PRIVATE
     private class DynamicArrayIterator implements Iterator<E> {
         private int index = 0;
 
         @Override
         public boolean hasNext() {
-            return index < capacity;
+            boolean hasNext = index < capacity;
+            System.out.println("DynamicArrayIterator:hasNext() = " + hasNext);
+            return hasNext;
         }
 
         @Override
         public E next() {
             E element = elements[index];
+            System.out.println("DynamicArrayIterator:next() = " + element);
             index++;
             return element;
         }
